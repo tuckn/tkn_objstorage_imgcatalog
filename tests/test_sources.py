@@ -59,8 +59,8 @@ def snapshot(root):
 def test_named_defaults_and_readonly_report(tmp_path):
     config = load_config()
     assert config.source_id == "my-obj-storage-1"
-    assert config.data_root == tmp_path / "home/.tkn/objstorage-imgcatalog/data/my-obj-storage-1"
-    assert config.state_root == tmp_path / "home/.tkn/objstorage-imgcatalog/state/my-obj-storage-1"
+    assert config.data_root == tmp_path / "home/.tkn/objstorage_imgcatalog/data/my-obj-storage-1"
+    assert config.state_root == tmp_path / "home/.tkn/objstorage_imgcatalog/state/my-obj-storage-1"
     assert config.notes_root == config.data_root / "4_notes"
     report = config.report()
     assert report["config"]["schema_version"] == "4.0.0"

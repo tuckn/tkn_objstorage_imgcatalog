@@ -9,10 +9,10 @@ integration_tests: {}
 # One source manages one Azure container, AWS S3 bucket, or Cloudflare R2 bucket.
 sources:
   my-obj-storage-1:
-    # null uses ~/.tkn/objstorage-imgcatalog/data/<source-id>
+    # null uses ~/.tkn/objstorage_imgcatalog/data/<source-id>
     # Open this directory as the Obsidian Vault root; notes stay in <data_root>/4_notes.
     data_root: null
-    # null uses ~/.tkn/objstorage-imgcatalog/state/<source-id>
+    # null uses ~/.tkn/objstorage_imgcatalog/state/<source-id>
     state_root: null
     provider: azure # azure | s3 | r2
     azure:

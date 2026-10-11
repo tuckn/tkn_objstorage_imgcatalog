@@ -184,3 +184,17 @@ def test_migrate_command_is_unavailable(capsys):
         main(["migrate", "--source", "images", "--dry-run"])
     assert exc.value.code == 2
     assert "invalid choice" in capsys.readouterr().err
+
+
+def test_default_config_init_and_discovery(tmp_path, monkeypatch, capsys):
+    monkeypatch.setattr(Path, "home", lambda: tmp_path / "home")
+    monkeypatch.chdir(tmp_path)
+    root = tmp_path / "home/.tkn/objstorage_imgcatalog"
+    assert main(["config", "init"]) == 0
+    result = json.loads(capsys.readouterr().out)
+    assert Path(result["path"]) == root / "config.yaml"
+    config = load_config()
+    assert config.loaded_sources[-1]["source"] == str(root / "config.yaml")
+    assert config.data_root == root / "data/my-obj-storage-1"
+    assert config.state_root == root / "state/my-obj-storage-1"
+    assert not (root.parent / "objstorage-imgcatalog").exists()

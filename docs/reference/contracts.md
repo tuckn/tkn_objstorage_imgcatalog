@@ -21,7 +21,7 @@
 設定は次の順に読み込み、後のものが前のものを上書きします。
 
 1. パッケージに同梱した既定値
-2. `~/.tkn/objstorage-imgcatalog/config.yaml`（存在しない場合だけ `~/.tkn/azure_blob_note/config.yaml`）
+2. `~/.tkn/objstorage_imgcatalog/config.yaml`（存在しない場合だけ `~/.tkn/azure_blob_note/config.yaml`）
 3. コマンドを実行したフォルダーの `./.tkn/config.yaml`
 4. `--config FILE` で明示したファイル
 5. 対応する CLI オプション（`--data-root`、`--state-root`、`import` の `--convert` / `--no-convert`）
@@ -69,8 +69,8 @@ AWS のリージョンや認証プロファイルだけを変えても別のバ�
 | --- | --- | --- |
 | `schema_version` | `"4.0.0"` | 設定ファイルごとに必須です。 |
 | `sources` | `my-obj-storage-1` の1 source | 利用者が付けた source ID をキーとする設定一覧です。ひな形には2つ目の source のコメント例もあります。 |
-| `data_root` | `~/.tkn/objstorage-imgcatalog/data/<source-id>` | 画像とノートを保存する領域です。 |
-| `state_root` | `~/.tkn/objstorage-imgcatalog/state/<source-id>` | 同期の基準、実行記録、ログを保存する領域です。 |
+| `data_root` | `~/.tkn/objstorage_imgcatalog/data/<source-id>` | 画像とノートを保存する領域です。 |
+| `state_root` | `~/.tkn/objstorage_imgcatalog/state/<source-id>` | 同期の基準、実行記録、ログを保存する領域です。 |
 | `provider` | `azure` | `azure`、`s3`、`r2`。選んだ接続設定だけを使用します。 |
 | `s3.bucket` | `null` | S3/R2 の既存の汎用バケット名。接続する場合に必須です。 |
 | `s3.region` | `null` | S3 は SDK の既定リージョンを使用。R2 は省略または `auto` です。 |

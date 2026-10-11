@@ -14,7 +14,7 @@ from ruamel.yaml.error import YAMLError
 from .errors import AppError, ConflictError
 from .io import atomic_bytes, check_schema, now, safe_relative, sha256
 
-APPLICATION_ID = "objstorage-imgcatalog"
+APPLICATION_ID = "objstorage_imgcatalog"
 CONFIG_SCHEMA_VERSION = "4.0.0"
 DEFAULT_SOURCE_ID = "my-obj-storage-1"
 LEGACY_SOURCE_ID = "images"

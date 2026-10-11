@@ -134,7 +134,9 @@ flowchart LR
 `import`、`build`、`notes refresh` などは手元だけで完結します。
 
 設定と実行時のデータは、このソース リポジトリの外に保存します。
-既定の保存先は、ホーム フォルダー配下の `~/.tkn/objstorage-imgcatalog/` です。
+既定の保存先は、ホーム フォルダー配下の `~/.tkn/objstorage_imgcatalog/` です。
+
+0.14.1 からフォルダー名を `objstorage_imgcatalog` に変更しました。旧 `~/.tkn/objstorage-imgcatalog/` は自動移動・読み込みしません。既存環境では、設定とデータを引き継ぐ場合はフォルダーを新しい名前に変更し、設定内で旧パスを明示している箇所も更新してください。
 各フォルダーの役割と、コマンドごとの詳しいデータの流れは「[7. 保存構造とデータの流れ](#7-保存構造とデータの流れ)」で説明します。
 
 ## 2. クイックスタート
@@ -165,7 +167,7 @@ tkn-objstorage-imgcatalog verify --source my-obj-storage-1 --remote
 ```
 
 手順5で表示される JSON の `valid` が `true` であれば完了です。
-画像とノートは `~/.tkn/objstorage-imgcatalog/data/my-obj-storage-1/` に保存されます。
+画像とノートは `~/.tkn/objstorage_imgcatalog/data/my-obj-storage-1/` に保存されます。
 
 > [!IMPORTANT]
 > 手順3〜5はクラウドへ接続し、各サービスの API 利用・転送の料金が発生する場合があります。
@@ -201,7 +203,7 @@ WebP 変換に使う Pillow を含め、必要な Python パッケージは一�
 tkn-objstorage-imgcatalog --version
 ```
 
-`tkn-objstorage-imgcatalog 0.14.0` のようにバージョンが表示されれば、インストールは完了しています。
+`tkn-objstorage-imgcatalog 0.14.1` のようにバージョンが表示されれば、インストールは完了しています。
 コマンドが見つからない場合は、`uv tool update-shell` を実行してから、新しいターミナルを開きます。
 
 コマンドとオプションの一覧は `tkn-objstorage-imgcatalog --help` で確認できます。
@@ -216,7 +218,7 @@ tkn-objstorage-imgcatalog config init
 tkn-objstorage-imgcatalog config list
 ```
 
-`config init` は、`~/.tkn/objstorage-imgcatalog/config.yaml` に設定ファイルのひな形を作成し、そのパスを JSON の `path` に表示します。
+`config init` は、`~/.tkn/objstorage_imgcatalog/config.yaml` に設定ファイルのひな形を作成し、そのパスを JSON の `path` に表示します。
 `config list` は、有効な設定値と、各値がどの設定ファイルに由来するかを表示します。
 
 ### 3.4. 接続先と認証の設定
@@ -466,7 +468,7 @@ tkn-objstorage-imgcatalog verify --source my-obj-storage-1 --remote
 **4. Obsidian でノートを開きます（任意）。**
 
 **`data_root` そのものを Obsidian の Vault ルートとして開きます。**
-既定では `~/.tkn/objstorage-imgcatalog/data/my-obj-storage-1` です。
+既定では `~/.tkn/objstorage_imgcatalog/data/my-obj-storage-1` です。
 その中の `4_notes` フォルダーからノートを開くと、ノートと手元の画像が同じ Vault に入っているため、ノート内に画像が表示されます。
 
 Frontmatter の `cover: "3_releases/..."` は、Vault ルートを基準にしています。
@@ -829,7 +831,7 @@ sources:
       enabled: false
 ```
 
-保存先を省略した場合、画像とノートは `~/.tkn/objstorage-imgcatalog/data/<source-id>/` に、同期の記録とログは `~/.tkn/objstorage-imgcatalog/state/<source-id>/` に、source ごとに分かれて保存されます。
+保存先を省略した場合、画像とノートは `~/.tkn/objstorage_imgcatalog/data/<source-id>/` に、同期の記録とログは `~/.tkn/objstorage_imgcatalog/state/<source-id>/` に、source ごとに分かれて保存されます。
 操作する source は、コマンドごとに `--source` で選びます。
 
 ```shell
@@ -878,7 +880,7 @@ tkn-objstorage-imgcatalog notes refresh --source my-obj-storage-1
 
 ### 7.1. 保存先と失った場合の影響
 
-既定では、`~/.tkn/objstorage-imgcatalog/` の下に次のように保存します。
+既定では、`~/.tkn/objstorage_imgcatalog/` の下に次のように保存します。
 保存先は、source ごとの `data_root` と `state_root` で変更できます。
 画像とノートは、`data_root` 配下で一体として管理します。
 
@@ -1056,7 +1058,7 @@ tkn-objstorage-imgcatalog --version
 
 リポジトリのフォルダーを移動または改名した後も、新しい場所で同じ再インストールを実行します。
 uv が記録しているソースのパスが更新されます。
-コマンド名と、`~/.tkn/objstorage-imgcatalog/` の保存領域は変わりません。
+コマンド名と、`~/.tkn/objstorage_imgcatalog/` の保存領域は変わりません。
 
 バージョンごとの変更内容は [CHANGELOG.md](CHANGELOG.md) を参照します。
 
