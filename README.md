@@ -1,6 +1,6 @@
-# tkn-objstorage-imgcatalog: Tkn Object Storage Image Catalog
+# Tkn Object Storage Image Catalog — オブジェクトストレージの画像を Markdown ノートで管理する CLI
 
-Azure Blob Storage・AWS S3・Cloudflare R2 に置く画像を、手元の原本・公開用画像・Obsidian で読める Markdown ノートと対応付けて管理する CLI です。
+`tkn-objstorage-imgcatalog` は、Azure Blob Storage・AWS S3・Cloudflare R2 に置く画像を、手元の原本・公開用画像・Obsidian で読める Markdown ノートと対応付けて管理する CLI です。
 たとえば PNG を `upload` すると、原本をそのまま保存したうえで、公開用の WebP を作成してクラウドへ送信し、説明文やタグを書き込める画像ノートを作成します。
 すでにクラウドにある画像は、`pull` で手元に取得し、同じように画像ノートを作成します。
 
